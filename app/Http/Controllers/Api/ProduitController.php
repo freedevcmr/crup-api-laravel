@@ -27,7 +27,7 @@ class ProduitController extends Controller
             $produit->updated_at = now();
             $produit->save();
 
-            return response()->json(['message' => 'Produit créé avec succès', 'produit' => $produit], 201);
+            return response()->json(['message' => 'Successfully created product', 'produit' => $produit], 201);
 
          }catch(Exception $e){
 
@@ -46,7 +46,7 @@ class ProduitController extends Controller
         // Rechercher le produit à mettre à jour
         $produit = Produit::find($id);
         if (!$produit) {
-            return response()->json(['message' => 'Produit non trouvé'], 404);
+            return response()->json(['message' => 'Product not found'], 404);
         }
 
         // Mettre à jour les champs du produit
@@ -56,7 +56,7 @@ class ProduitController extends Controller
         $produit->updated_at = now();
         $produit->save();
 
-        return response()->json(['message' => 'Produit mis à jour avec succès', 'produit' => $produit], 200);
+        return response()->json(['message' => 'Product successfully updated', 'produit' => $produit], 200);
 
 
          }catch(Exception $e){
@@ -75,13 +75,13 @@ class ProduitController extends Controller
             // Rechercher le produit à supprimer
             $produit = Produit::find($id);
             if (!$produit) {
-                return response()->json(['message' => 'Produit non trouvé'], 404);
+                return response()->json(['message' => 'Product not found'], 404);
             }
 
             // Supprimer le produit
             $produit->delete();
 
-            return response()->json(['message' => 'Produit supprimé avec succès'], 200);
+            return response()->json(['message' => 'Product successfully deleted'], 200);
 
          }catch(Exception $e){
 
@@ -98,7 +98,7 @@ class ProduitController extends Controller
          // Rechercher le produit
             $produit = Produit::find($id);
             if (!$produit) {
-                return response()->json(['message' => 'Produit non trouvé'], 404);
+                return response()->json(['message' => 'Product not found'], 404);
             }
 
             return response()->json($produit, 200);
